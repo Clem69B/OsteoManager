@@ -38,4 +38,10 @@ public class Patient extends Human {
     private List<MedicalProfessional> MedicalStaff;
     private String allergy;
     private String medicalHistory;
+
+    public Patient(String firstName, String lastName) {
+        this.firstName = firstName;
+        this.lastName = lastName;
+    }
+
 }

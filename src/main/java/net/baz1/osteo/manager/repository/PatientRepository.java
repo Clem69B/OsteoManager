@@ -1,7 +1,20 @@
 package net.baz1.osteo.manager.repository;
 
+import net.baz1.osteo.manager.model.Patient;
+import org.springframework.data.mongodb.repository.MongoRepository;
+
+import java.util.List;
+
 /**
  * Created by Clément Bazin on 14/12/14.
+ *
+ * Simple Patient repository with Spring Data MongoDB
  */
-public class PatientRepository {
+public interface PatientRepository extends MongoRepository<Patient, String> {
+
+    public List<Patient> findByFirstName(String firstName);
+    public List<Patient> findByLastName(String lastName);
+    public List<Patient> findBySocialSecurityNumber(String socialSecurityNumber);
+
+
 }

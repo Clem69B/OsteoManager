@@ -19,22 +19,24 @@
 
 package net.baz1.osteo.manager.model;
 
+import lombok.Data;
 import org.springframework.data.annotation.Id;
 
 /**
  * Created by Clément Bazin on 14/12/14.
  */
+@Data
 abstract public class Human {
 
     @Id
-    private String id;
+    protected String id;
 
-    private String firstName;
-    private String lastName;
-    private String street;
-    private int postalCode;
-    private String city;
-    private String phoneNumber;
-    private String emailAddress;
+    protected String firstName;
+    protected String lastName;
+    protected String street;
+    protected int postalCode;
+    protected String city;
+    protected String phoneNumber;
+    protected String emailAddress;
 
 }
