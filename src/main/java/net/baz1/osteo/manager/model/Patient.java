@@ -20,6 +20,7 @@
 package net.baz1.osteo.manager.model;
 
 import lombok.Data;
+import lombok.ToString;
 
 import java.util.Date;
 import java.util.List;
@@ -28,6 +29,7 @@ import java.util.List;
  * Created by Clément Bazin on 14/12/14.
  */
 @Data
+@ToString(callSuper = true)
 public class Patient extends Human {
 
     private Date birthDay;
