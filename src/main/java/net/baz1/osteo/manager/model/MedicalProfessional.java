@@ -20,14 +20,28 @@
 package net.baz1.osteo.manager.model;
 
 import lombok.Data;
+import lombok.ToString;
+import org.springframework.data.mongodb.core.mapping.DBRef;
+import org.springframework.stereotype.Component;
 
 /**
  * Created by Clément Bazin on 14/12/14.
  */
+
+@Component
 @Data
+@ToString(callSuper = true)
 public class MedicalProfessional extends Human {
 
+    @DBRef
     private MedicalProfession profession;
 
     private String fax;
+
+    public MedicalProfessional(String firstName, String lastName, MedicalProfession profession) {
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.profession = profession;
+    }
+
 }

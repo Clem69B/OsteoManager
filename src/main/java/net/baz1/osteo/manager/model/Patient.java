@@ -21,6 +21,8 @@ package net.baz1.osteo.manager.model;
 
 import lombok.Data;
 import lombok.ToString;
+import org.springframework.data.mongodb.core.mapping.DBRef;
+import org.springframework.stereotype.Component;
 
 import java.util.Date;
 import java.util.List;
@@ -28,6 +30,8 @@ import java.util.List;
 /**
  * Created by Clément Bazin on 14/12/14.
  */
+
+@Component
 @Data
 @ToString(callSuper = true)
 public class Patient extends Human {
@@ -37,7 +41,9 @@ public class Patient extends Human {
     private String socialSecurityNumber;
     private String healthInsurance;
 
+    @DBRef
     private List<MedicalProfessional> MedicalStaff;
+
     private String allergy;
     private String medicalHistory;
 

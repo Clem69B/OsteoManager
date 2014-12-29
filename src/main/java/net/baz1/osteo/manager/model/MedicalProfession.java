@@ -21,15 +21,22 @@ package net.baz1.osteo.manager.model;
 
 import org.springframework.data.annotation.Id;
 import lombok.Data;
+import org.springframework.stereotype.Component;
 
 /**
  * Created by Clément Bazin on 14/12/14.
  */
+
+@Component
 @Data
 public class MedicalProfession {
 
     @Id
     private String Id;
     private String name;
+
+    public MedicalProfession(String name) {
+        this.name = name.toLowerCase();
+    }
 
 }
