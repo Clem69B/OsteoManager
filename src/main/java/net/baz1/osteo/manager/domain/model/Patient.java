@@ -17,11 +17,15 @@
  *     along with Foobar.  If not, see <http://www.gnu.org/licenses/>. 2
  */
 
-package net.baz1.osteo.manager.model;
+package net.baz1.osteo.manager.domain.model;
 
-import org.springframework.data.annotation.Id;
 import lombok.Data;
+import lombok.ToString;
+import org.springframework.data.mongodb.core.mapping.DBRef;
 import org.springframework.stereotype.Component;
+
+import java.util.Date;
+import java.util.List;
 
 /**
  * Created by Clément Bazin on 14/12/14.
@@ -29,14 +33,23 @@ import org.springframework.stereotype.Component;
 
 @Component
 @Data
-public class MedicalProfession {
+@ToString(callSuper = true)
+public class Patient extends Human {
 
-    @Id
-    private String Id;
-    private String name;
+    private Date birthDay;
 
-    public MedicalProfession(String name) {
-        this.name = name.toLowerCase();
+    private String socialSecurityNumber;
+    private String healthInsurance;
+
+    @DBRef
+    private List<MedicalProfessional> MedicalStaff;
+
+    private String allergy;
+    private String medicalHistory;
+
+    public Patient(String firstName, String lastName) {
+        this.firstName = firstName;
+        this.lastName = lastName;
     }
 
 }

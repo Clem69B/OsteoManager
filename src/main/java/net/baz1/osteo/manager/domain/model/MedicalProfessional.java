@@ -17,15 +17,12 @@
  *     along with Foobar.  If not, see <http://www.gnu.org/licenses/>. 2
  */
 
-package net.baz1.osteo.manager.model;
+package net.baz1.osteo.manager.domain.model;
 
 import lombok.Data;
 import lombok.ToString;
 import org.springframework.data.mongodb.core.mapping.DBRef;
 import org.springframework.stereotype.Component;
-
-import java.util.Date;
-import java.util.List;
 
 /**
  * Created by Clément Bazin on 14/12/14.
@@ -34,22 +31,17 @@ import java.util.List;
 @Component
 @Data
 @ToString(callSuper = true)
-public class Patient extends Human {
-
-    private Date birthDay;
-
-    private String socialSecurityNumber;
-    private String healthInsurance;
+public class MedicalProfessional extends Human {
 
     @DBRef
-    private List<MedicalProfessional> MedicalStaff;
+    private MedicalProfession profession;
 
-    private String allergy;
-    private String medicalHistory;
+    private String fax;
 
-    public Patient(String firstName, String lastName) {
+    public MedicalProfessional(String firstName, String lastName, MedicalProfession profession) {
         this.firstName = firstName;
         this.lastName = lastName;
+        this.profession = profession;
     }
 
 }

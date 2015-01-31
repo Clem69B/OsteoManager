@@ -17,26 +17,26 @@
  *     along with Foobar.  If not, see <http://www.gnu.org/licenses/>. 2
  */
 
-package net.baz1.osteo.manager.model;
+package net.baz1.osteo.manager.domain.model;
 
 import lombok.Data;
 import org.springframework.data.annotation.Id;
+import org.springframework.stereotype.Component;
 
 /**
  * Created by Clément Bazin on 14/12/14.
  */
+
+@Component
 @Data
-abstract public class Human {
+public class MedicalProfession {
 
     @Id
-    protected String id;
+    private String id;
+    private String name;
 
-    protected String firstName;
-    protected String lastName;
-    protected String street;
-    protected int postalCode;
-    protected String city;
-    protected String phoneNumber;
-    protected String emailAddress;
+    public MedicalProfession(String name) {
+        this.name = name.toLowerCase();
+    }
 
 }

@@ -17,31 +17,26 @@
  *     along with Foobar.  If not, see <http://www.gnu.org/licenses/>. 2
  */
 
-package net.baz1.osteo.manager.model;
+package net.baz1.osteo.manager.domain.model;
 
 import lombok.Data;
-import lombok.ToString;
-import org.springframework.data.mongodb.core.mapping.DBRef;
-import org.springframework.stereotype.Component;
+import org.springframework.data.annotation.Id;
 
 /**
  * Created by Clément Bazin on 14/12/14.
  */
-
-@Component
 @Data
-@ToString(callSuper = true)
-public class MedicalProfessional extends Human {
+abstract public class Human {
 
-    @DBRef
-    private MedicalProfession profession;
+    @Id
+    protected String id;
 
-    private String fax;
-
-    public MedicalProfessional(String firstName, String lastName, MedicalProfession profession) {
-        this.firstName = firstName;
-        this.lastName = lastName;
-        this.profession = profession;
-    }
+    protected String firstName;
+    protected String lastName;
+    protected String street;
+    protected int postalCode;
+    protected String city;
+    protected String phoneNumber;
+    protected String emailAddress;
 
 }
