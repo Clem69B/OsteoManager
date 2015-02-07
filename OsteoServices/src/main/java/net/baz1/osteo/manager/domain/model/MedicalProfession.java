@@ -20,36 +20,23 @@
 package net.baz1.osteo.manager.domain.model;
 
 import lombok.Data;
-import lombok.ToString;
-import org.springframework.data.mongodb.core.mapping.DBRef;
-import org.springframework.stereotype.Component;
-
-import java.util.Date;
-import java.util.List;
+import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.mapping.Document;
 
 /**
  * Created by Clément Bazin on 14/12/14.
  */
 
-@Component
+@Document
 @Data
-@ToString(callSuper = true)
-public class Patient extends Human {
+public class MedicalProfession {
 
-    private Date birthDay;
+    @Id
+    private String id;
+    private String name;
 
-    private String socialSecurityNumber;
-    private String healthInsurance;
-
-    @DBRef
-    private List<MedicalProfessional> MedicalStaff;
-
-    private String allergy;
-    private String medicalHistory;
-
-    public Patient(String firstName, String lastName) {
-        this.firstName = firstName;
-        this.lastName = lastName;
+    public MedicalProfession(String name) {
+        this.name = name.toLowerCase();
     }
 
 }

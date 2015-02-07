@@ -2,6 +2,7 @@ package net.baz1.osteo.manager;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
+import org.springframework.context.annotation.ComponentScan;
 
 import java.util.logging.Logger;
 
@@ -10,6 +11,7 @@ import java.util.logging.Logger;
  */
 
 @EnableAutoConfiguration
+@ComponentScan
 public class App { //implements CommandLineRunner {
 
     private static Logger LOGGER = Logger.getLogger(App.class.getName());

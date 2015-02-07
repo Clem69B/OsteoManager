@@ -6,9 +6,42 @@
     <groupId>net.baz1.osteo</groupId>
     <artifactId>osteo-manager</artifactId>
     <version>0.1-SNAPSHOT</version>
-    <packaging>jar</packaging>
+    <modules>
+        <module>OsteoServices</module>
+    </modules>
+    <packaging>pom</packaging>
 
     <name>OsteoManager</name>
+    <url>https://github.com/Gritch69/OsteoManager</url>
+    <description>This software is the server part of a patient manager for osteopath</description>
+
+    <developers>
+        <developer>
+            <id>gritch69</id>
+            <name>Clément Bazin</name>
+            <email>clem69.b@gmail.com</email>
+            <roles>
+                <role>architect</role>
+                <role>developer</role>
+            </roles>
+            <timezone>Europe/Paris</timezone>
+        </developer>
+    </developers>
+    <licenses>
+        <license>
+            <name>GNU General Public License, Version 3</name>
+            <url>http://www.gnu.org/licenses/gpl.txt</url>
+        </license>
+    </licenses>
+    <scm>
+        <connection>scm:git:https://github.com/Gritch69/OsteoManager.git</connection>
+        <tag>HEAD</tag>
+        <url>https://github.com/Gritch69/OsteoManager</url>
+    </scm>
+    <issueManagement>
+        <system>GitHub</system>
+        <url>https://github.com/Gritch69/OsteoManager/issues</url>
+    </issueManagement>
 
     <!-- Inherit defaults from Spring Boot -->
     <parent>
@@ -29,10 +62,6 @@
             <artifactId>lombok</artifactId>
             <version>1.14.8</version>
             <scope>provided</scope>
-        </dependency>
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-data-mongodb</artifactId>
         </dependency>
         <dependency>
             <groupId>org.springframework.boot</groupId>

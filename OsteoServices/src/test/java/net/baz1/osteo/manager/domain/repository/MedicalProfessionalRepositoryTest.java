@@ -1,6 +1,6 @@
 package net.baz1.osteo.manager.domain.repository;
 
-import net.baz1.osteo.manager.App;
+import net.baz1.osteo.manager.domain.AppTest;
 import net.baz1.osteo.manager.domain.model.MedicalProfession;
 import net.baz1.osteo.manager.domain.model.MedicalProfessional;
 import org.junit.After;
@@ -20,7 +20,7 @@ import static org.junit.Assert.assertEquals;
  */
 
 @RunWith(SpringJUnit4ClassRunner.class)
-@SpringApplicationConfiguration(classes = App.class)
+@SpringApplicationConfiguration(classes = AppTest.class)
 public class MedicalProfessionalRepositoryTest {
 
     @Autowired
