@@ -1,18 +1,16 @@
-package net.baz1.osteo.manager.domain.service;
+package net.baz1.osteo.manager.service;
 
-import net.baz1.osteo.manager.domain.exceptions.BadRequestRepositoryException;
-import net.baz1.osteo.manager.domain.exceptions.ConsultationMissingInformationException;
-import net.baz1.osteo.manager.domain.exceptions.PatientMissingInformationException;
-import net.baz1.osteo.manager.domain.exceptions.PatientNotFoundException;
-import net.baz1.osteo.manager.domain.model.Consultation;
 import net.baz1.osteo.manager.domain.model.Patient;
 import net.baz1.osteo.manager.domain.repository.PatientRepository;
+import net.baz1.osteo.manager.exceptions.BadRequestRepositoryException;
+import net.baz1.osteo.manager.exceptions.PatientMissingInformationException;
+import net.baz1.osteo.manager.exceptions.PatientNotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Component;
 
-import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 /**
@@ -29,7 +27,11 @@ public class PatientService {
         if (patient.getLastName() == null || patient.getFirstName() == null) {
             throw new PatientMissingInformationException("last name or first name missing for patient");
         }
-        patient.setConsultations(new ArrayList<Consultation>());
+
+        Date date = new Date();
+        patient.setCreatedDate(date);
+        patient.setLastUpdatedDate(date);
+
         try {
             return this.patientRepository.save(patient);
         } catch (Exception e) {
@@ -71,6 +73,8 @@ public class PatientService {
     }
 
     public Patient update(Patient patient) throws BadRequestRepositoryException {
+
+        patient.setLastUpdatedDate(new Date());
         try {
             return this.patientRepository.save(patient);
         } catch (Exception e) {
@@ -78,14 +82,4 @@ public class PatientService {
         }
     }
 
-    public Patient addConsultation(String id, Consultation consultation)
-            throws PatientNotFoundException, ConsultationMissingInformationException, BadRequestRepositoryException {
-        if (consultation.getDateConsultation() == null) {
-            throw new ConsultationMissingInformationException("Can't add consultation without a date");
-        }
-
-        Patient patient = get(id);
-        patient.getConsultations().add(consultation);
-        return update(patient);
-    }
 }

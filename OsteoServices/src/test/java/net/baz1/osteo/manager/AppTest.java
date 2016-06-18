@@ -1,4 +1,4 @@
-package net.baz1.osteo.manager.domain;
+package net.baz1.osteo.manager;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration;

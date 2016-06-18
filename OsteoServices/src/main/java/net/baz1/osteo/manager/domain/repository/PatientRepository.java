@@ -12,11 +12,11 @@ import java.util.List;
  */
 public interface PatientRepository extends MongoRepository<Patient, String> {
 
-    public List<Patient> findByFirstNameOrderByLastNameAscAllIgnoreCase(String firstName);
+    List<Patient> findByFirstNameOrderByLastNameAscAllIgnoreCase(String firstName);
 
-    public List<Patient> findByLastNameOrderByFirstNameAscAllIgnoreCase(String lastName);
+    List<Patient> findByLastNameOrderByFirstNameAscAllIgnoreCase(String lastName);
 
-    public Patient findBySocialSecurityNumberIgnoreCase(String socialSecurityNumber);
+    Patient findBySocialSecurityNumberIgnoreCase(String socialSecurityNumber);
 
 
 }

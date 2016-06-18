@@ -42,17 +42,15 @@ public class Patient extends Human {
     private int weightInKg;
     private String profession;
 
+    @DBRef
+    private List<MedicalProfessional> MedicalStaff;
     private String socialSecurityNumber;
     private String healthInsurance;
 
-    @DBRef
-    private List<MedicalProfessional> MedicalStaff;
-
     private String allergy;
-    private String medicalHistory;
+    private String personalMedicalHistory;
+    private String familyMedicalHistory;
     private String other;
-
-    private List<Consultation> consultations;
 
     public Patient(String firstName, String lastName) {
         this.firstName = firstName;

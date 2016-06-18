@@ -13,9 +13,9 @@ import java.util.List;
  */
 public interface MedicalProfessionalRepository extends MongoRepository<MedicalProfessional, String> {
 
-    public List<MedicalProfessional> findByFirstName(String firstName);
+    List<MedicalProfessional> findByFirstName(String firstName);
 
-    public List<MedicalProfessional> findByLastName(String lastName);
+    List<MedicalProfessional> findByLastName(String lastName);
 
-    public List<MedicalProfessional> findByProfession(MedicalProfession profession);
+    List<MedicalProfessional> findByProfession(MedicalProfession profession);
 }

@@ -1,7 +1,6 @@
-package net.baz1.osteo.manager.domain.service;
+package net.baz1.osteo.manager.service;
 
-import net.baz1.osteo.manager.domain.AppTest;
-import net.baz1.osteo.manager.domain.model.Consultation;
+import net.baz1.osteo.manager.AppTest;
 import net.baz1.osteo.manager.domain.model.Patient;
 import net.baz1.osteo.manager.domain.repository.PatientRepository;
 import org.junit.After;
@@ -16,8 +15,8 @@ import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
-import java.util.Date;
 import java.util.List;
+import java.util.logging.Logger;
 
 /**
  * Created by Clément Bazin on 07/02/15.
@@ -26,6 +25,8 @@ import java.util.List;
 @RunWith(SpringJUnit4ClassRunner.class)
 @SpringApplicationConfiguration(classes = AppTest.class)
 public class PatientServiceTest {
+
+    Logger log = Logger.getLogger(this.getClass().getName());
 
     @Autowired
     PatientRepository patientRepository;
@@ -56,8 +57,6 @@ public class PatientServiceTest {
 
         Assert.assertEquals("first name", "Bob", registeredPatient.getFirstName());
         Assert.assertEquals("last name", "Crane", registeredPatient.getLastName());
-        Assert.assertNotNull("consultations must be created", registeredPatient.getConsultations());
-        Assert.assertEquals("consultation size must be 0", 0, registeredPatient.getConsultations().size());
     }
 
     @Test
@@ -81,17 +80,5 @@ public class PatientServiceTest {
     @Test
     public void testUpdate() throws Exception {
 
-    }
-
-    @Test
-    public void testAddConsultation() throws Exception {
-        Consultation consultation = new Consultation();
-        consultation.setDateConsultation(new Date());
-
-        Patient registeredPatient = this.patientService.add(new Patient("Bob", "Crane"));
-
-        Patient patient = this.patientService.addConsultation(registeredPatient.getId(), consultation);
-
-        Assert.assertEquals("consultation number", 1, patient.getConsultations().size());
     }
 }

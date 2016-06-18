@@ -22,6 +22,8 @@ package net.baz1.osteo.manager.domain.model;
 import lombok.Data;
 import org.springframework.data.annotation.Id;
 
+import java.util.Date;
+
 /**
  * Created by Clément Bazin on 14/12/14.
  */
@@ -38,5 +40,8 @@ abstract public class Human {
     protected String city;
     protected String phoneNumber;
     protected String emailAddress;
+
+    protected Date createdDate;
+    protected Date lastUpdatedDate;
 
 }

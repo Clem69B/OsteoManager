@@ -1,6 +1,6 @@
 package net.baz1.osteo.manager.domain.repository;
 
-import net.baz1.osteo.manager.domain.AppTest;
+import net.baz1.osteo.manager.AppTest;
 import net.baz1.osteo.manager.domain.model.Patient;
 import org.junit.After;
 import org.junit.Before;

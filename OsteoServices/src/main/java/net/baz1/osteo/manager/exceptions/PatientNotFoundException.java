@@ -1,4 +1,4 @@
-package net.baz1.osteo.manager.domain.exceptions;
+package net.baz1.osteo.manager.exceptions;
 
 /**
  * Created by Clément Bazin on 03/02/15.

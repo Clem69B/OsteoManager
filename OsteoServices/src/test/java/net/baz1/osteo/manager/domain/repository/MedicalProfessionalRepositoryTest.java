@@ -1,9 +1,8 @@
 package net.baz1.osteo.manager.domain.repository;
 
-import net.baz1.osteo.manager.domain.AppTest;
+import net.baz1.osteo.manager.AppTest;
 import net.baz1.osteo.manager.domain.model.MedicalProfession;
 import net.baz1.osteo.manager.domain.model.MedicalProfessional;
-import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -36,10 +35,10 @@ public class MedicalProfessionalRepositoryTest {
         medicalProfessionRepository.save(new MedicalProfession("doctor"));
         medicalProfessionRepository.save(new MedicalProfession("Nurse"));
         medicalProfessionalRepository.save(new MedicalProfessional("Julie", "Bernard",
-                medicalProfessionRepository.findByName("nurse").get(0)));
+                medicalProfessionRepository.findByNameIgnoreCase("nurse").get(0)));
     }
 
-    @After
+    //@After
     public void tearDown() throws Exception {
         medicalProfessionRepository.deleteAll();
         medicalProfessionalRepository.deleteAll();

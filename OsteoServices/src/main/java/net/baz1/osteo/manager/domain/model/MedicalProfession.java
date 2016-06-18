@@ -33,6 +33,7 @@ public class MedicalProfession {
 
     @Id
     private String id;
+
     private String name;
 
     public MedicalProfession(String name) {

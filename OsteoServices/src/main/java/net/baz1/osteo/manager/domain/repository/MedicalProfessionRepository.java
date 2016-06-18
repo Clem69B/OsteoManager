@@ -12,5 +12,5 @@ import java.util.List;
  */
 public interface MedicalProfessionRepository extends MongoRepository<MedicalProfession, String> {
 
-    public List<MedicalProfession> findByName(String name);
+    List<MedicalProfession> findByNameIgnoreCase(String name);
 }
